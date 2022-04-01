@@ -1,6 +1,41 @@
-import { Box, Button, Typography } from "@mui/material";
+import {
+    Box,
+    Button,
+    FormControl,
+    FormHelperText,
+    InputLabel,
+    Typography,
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+
+function Myinput(cats) {
+    let i;
+
+    switch (cats) {
+        case "1":
+            return <input type="text" />;
+        case "2":
+            return (
+                <>
+                    <input type="text" />
+                    <input type="text" />
+                </>
+            );
+        case "3":
+            return (
+                <>
+                    <input type="text" />
+                    <input type="text" />
+                    <input type="text" />
+                </>
+            );
+        default:
+            return "";
+    }
+}
 
 function FormsOne() {
     const Input = styled("input")({
@@ -22,6 +57,12 @@ function FormsOne() {
     };
 
     const handleSubmission = () => {};
+    const [catNumber, setCatNumber] = React.useState("");
+    const [inputs, setInputs] = useState([<input />]);
+
+    const handleChange = (event) => {
+        setCatNumber(event.target.value);
+    };
 
     return (
         <>
@@ -69,6 +110,7 @@ function FormsOne() {
                             color: "#780068",
                             border: "1px solid #90007E",
                             padding: "5px 30px",
+                            minWidth: "214px",
                         }}
                     >
                         Choose File...
@@ -100,10 +142,42 @@ function FormsOne() {
                 >
                     How many cat(s) do you live with? *
                 </Typography>
-                <select name="" id="" style={{ marginTop: "50px" }} required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                {/* <FormControl
+                    sx={{
+                        minWidth: "214px",
+                        m: 1,
+                        height: "45px",
+                    }}
+                >
+                    <InputLabel
+                        className="custom"
+                        id="demo-simple-select-label"
+                    >
+                        Number of cats
+                    </InputLabel>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={age}
+                        label="Number of cats"
+                        onChange={handleChange}
+                        sx={{ height: "100%" }}
+                    >
+                        <MenuItem value={1}>1</MenuItem>
+                        <MenuItem value={2}>2</MenuItem>
+                        <MenuItem value={3}>3</MenuItem>
+                    </Select>
+                </FormControl> */}
+                <select
+                    name=""
+                    id=""
+                    value={catNumber}
+                    style={{ marginTop: "50px" }}
+                    onChange={handleChange}
+                >
+                    <option value={1}>1</option>
+                    <option value={2}>2</option>
+                    <option value={3}>3</option>
                 </select>
                 <Typography
                     sx={{
@@ -115,31 +189,9 @@ function FormsOne() {
                 >
                     What are their names? *
                 </Typography>
-                <input
-                    style={{
-                        margin: "10px 10px 10px 0",
-                        outline: "none",
-                        padding: "5px",
-                    }}
-                    type="text"
-                />
-                <input
-                    style={{
-                        margin: "10px 10px 10px 0",
-                        outline: "none",
-                        padding: "5px",
-                    }}
-                    type="text"
-                />{" "}
-                <br />
-                <input
-                    style={{
-                        margin: "10px 10px 10px 0",
-                        outline: "none",
-                        padding: "5px",
-                    }}
-                    type="text"
-                />
+
+                {catNumber ? Myinput(catNumber) : ""}
+
                 {/* <Button onClick={handleSubmission}>PREVIEW</Button> */}
             </Box>
         </>

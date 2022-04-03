@@ -22,11 +22,21 @@ function FromSubmit() {
               fontSize: "60px",
               fontWeight: "400",
               marginTop: "50px",
+              "@media(max-width:575px)": { fontSize: "35px" },
             }}
           >
             Your Purr has been delivered!
           </Typography>
-          <Typography sx={{ fontSize: "24px", fontWeight: "400" }}>
+          <Typography
+            sx={{
+              fontSize: "24px",
+              fontWeight: "400",
+              "@media(max-width:575px)": {
+                fontSize: "13px",
+                marginTop: "20px",
+              },
+            }}
+          >
             Thanks for participating in Purr More with WHISKAS®. <br /> We’ll be
             in touch with you when we announce the winner! <br /> Good luck!
           </Typography>

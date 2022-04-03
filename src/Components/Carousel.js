@@ -6,7 +6,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 function Carousel() {
   return (
     <>
-      <div className="mx-5">
+      <div className="mx-lg-5 mx-0">
         <OwlCarousel
           className="owl-carousel owl-theme owl-loaded owl-drag"
           loop

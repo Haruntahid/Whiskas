@@ -1,10 +1,19 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
+import Checkbox from "@mui/material/Checkbox";
+import { Link } from "react-router-dom";
 
 function FormsTwo() {
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
   return (
     <>
-      <Box sx={{ maxWidth: "468px", margin: "0 auto" }}>
+      <Box
+        sx={{
+          maxWidth: "468px",
+          margin: "0 auto",
+          "@media(max-width:575px)": { padding: "20px" },
+        }}
+      >
         <form action="">
           <Typography
             sx={{ fontSize: "24px", fontWeight: "800", marginTop: "50px" }}
@@ -107,39 +116,100 @@ function FormsTwo() {
               />
             </div>
           </div>
-          <Box sx={{ marginTop: "50px" }}>
-            <input type="checkbox" name="policy" id="policy" />{" "}
+          <Box
+            sx={{
+              marginTop: "50px",
+              display: "flex",
+              alignItems: "start",
+            }}
+          >
+            <Checkbox color="secondary" {...label} />
             <label
               for="policy"
               style={{
                 fontSize: "16px",
-                display: "inline-table",
+
                 marginLeft: "8px",
               }}
             >
               I have read and agree to the
-              <span style={{ color: "#780068" }}>
+              <a href="#" style={{ color: "#780068" }}>
                 {" "}
                 privacy policy statements{" "}
-              </span>
-              and <br /> agree to receive marketing emails from MARS.
+              </a>
+              and agree to receive marketing emails from MARS.
             </label>
           </Box>
-          <Box sx={{ marginTop: "32px" }}>
-            <input type="checkbox" name="T&Cs" id="T&Cs" />{" "}
+          <Box
+            sx={{ marginTop: "32px", display: "flex", alignItems: "center" }}
+          >
+            <Checkbox color="secondary" {...label} />
             <lavel
               for="T&Cs"
               style={{
                 fontSize: "16px",
-                display: "inline-table",
                 marginLeft: "8px",
               }}
             >
               I have read and agree to the
-              <span style={{ color: "#780068" }}> T&Cs </span> from MARS.
+              <a href="#" style={{ color: "#780068" }}>
+                {" "}
+                T&Cs{" "}
+              </a>{" "}
+              from MARS.
             </lavel>
           </Box>
-          <button>get data</button>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-around",
+              marginTop: "50px",
+              "@media(max-width:575px)": {
+                display: "flex",
+                flexDirection: "column-reverse",
+              },
+            }}
+          >
+            <Button
+              sx={{
+                color: "#780068",
+                border: "1px solid #780068",
+                borderRadius: "30px",
+                padding: "8px 30px",
+                fontWeight: "500",
+                "@media(max-width:575px)": { width: "100%", marginTop: "10px" },
+              }}
+            >
+              Back
+            </Button>
+            <Link to="/FromSubmit">
+              <Button
+                sx={{
+                  background: "#FFB800 !important",
+                  color: "#780068",
+                  border: "1px solid #FFB800",
+                  borderRadius: "30px",
+                  padding: "8px 30px",
+                  fontWeight: "500",
+                  "@media(max-width:575px)": {
+                    width: "100%",
+                  },
+                }}
+              >
+                Put my best PURR forward
+              </Button>
+            </Link>
+          </Box>
+          <Typography
+            sx={{
+              textAlign: "center",
+              marginTop: "50px",
+              color: "#780068",
+              fontSize: "12px",
+            }}
+          >
+            Disclaimer: By submitting this form I confirm that I’m 14 or over.
+          </Typography>
         </form>
       </Box>
     </>

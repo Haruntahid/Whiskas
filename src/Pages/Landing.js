@@ -19,7 +19,6 @@ function Landing() {
       <PurrtoWin />
       <Forms />
       <Footer />
-      <FromSubmit />
     </>
   );
 }

@@ -59,8 +59,11 @@ function Header() {
           >
             <MenuIcon sx={{ color: "#780068" }} />
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+          <div
+            className="collapse navbar-collapse nav_res"
+            id="navbarSupportedContent"
+          >
+            <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#">
                   Home
